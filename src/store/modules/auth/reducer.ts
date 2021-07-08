@@ -7,7 +7,7 @@ import {
   SET_ERROR,
   NEED_VERIFICATION,
   SET_SUCCESS
-} from "../../globalTypes";
+} from "./types";
 
 const initialState: AuthState = {
   user: null,

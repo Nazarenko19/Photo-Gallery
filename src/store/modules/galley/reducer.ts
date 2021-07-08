@@ -1,4 +1,4 @@
-import { GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, GalleryState, GalleryAction } from "../../globalTypes";
+import { GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, GalleryState, GalleryAction } from "./types";
 
 const initialState: GalleryState = {
   images: [],

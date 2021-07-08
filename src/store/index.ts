@@ -7,13 +7,10 @@ import galleryReducer from "store/modules/galley/reducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  gallery: galleryReducer,
+  gallery: galleryReducer
 });
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export type RootState = ReturnType<typeof rootReducer>;
 
