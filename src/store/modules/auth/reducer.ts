@@ -6,8 +6,8 @@ import {
   SIGN_OUT,
   SET_ERROR,
   NEED_VERIFICATION,
-  SET_SUCCESS,
-} from "../../types";
+  SET_SUCCESS
+} from "../../globalTypes";
 
 const initialState: AuthState = {
   user: null,
@@ -15,7 +15,7 @@ const initialState: AuthState = {
   loading: false,
   error: "",
   needVerification: false,
-  success: "",
+  success: ""
 };
 
 const auth = (state = initialState, action: AuthAction) => {
@@ -24,34 +24,34 @@ const auth = (state = initialState, action: AuthAction) => {
       return {
         ...state,
         user: action.payload,
-        authenticated: true,
+        authenticated: true
       };
     case SET_LOADING:
       return {
         ...state,
-        loading: action.payload,
+        loading: action.payload
       };
     case SIGN_OUT:
       return {
         ...state,
         user: null,
         authenticated: false,
-        loading: false,
+        loading: false
       };
     case SET_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload
       };
     case NEED_VERIFICATION:
       return {
         ...state,
-        needVerification: true,
+        needVerification: true
       };
     case SET_SUCCESS:
       return {
         ...state,
-        success: action.payload,
+        success: action.payload
       };
     default:
       return state;

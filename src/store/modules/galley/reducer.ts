@@ -1,14 +1,8 @@
-import {
-  GET_IMAGES,
-  ADD_IMAGE,
-  DELETE_IMAGE,
-  GalleryState,
-  GalleryAction,
-} from "../../types";
+import { GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, GalleryState, GalleryAction } from "../../globalTypes";
 
 const initialState: GalleryState = {
   images: [],
-  imagesLoaded: false,
+  imagesLoaded: false
 };
 
 const gallery = (state = initialState, action: GalleryAction) => {
@@ -16,20 +10,18 @@ const gallery = (state = initialState, action: GalleryAction) => {
     case ADD_IMAGE:
       return {
         ...state,
-        images: [action.payload, ...state.images],
+        images: [action.payload, ...state.images]
       };
     case GET_IMAGES:
       return {
         ...state,
         images: action.payload,
-        imagesLoaded: true,
+        imagesLoaded: true
       };
     case DELETE_IMAGE:
       return {
         ...state,
-        images: [...state.images].filter(
-          (image) => image.id !== action.payload.id
-        ),
+        images: [...state.images].filter(image => image.id !== action.payload.id)
       };
     default:
       return state;
