@@ -1,9 +1,10 @@
 export const defaultRoute = "/";
 
 export const publicRoutes = {
-  signIn: "/signin",
-  signUp: "/signup",
-  forgotPassword: "/forgot-password"
+  signIn: "/sign-in",
+  signUp: "/sign-up",
+  forgotPassword: "/forgot-password",
+  pageNotFound: "/page-not-found"
 };
 
 export const privateRoutes = {

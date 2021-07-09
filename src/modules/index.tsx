@@ -1,20 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-// import Header from "components/sections/Header";
-// import SignUp from "components/pages/SignUp";
-// import SignIn from "components/pages/SignIn";
-// import ForgotPassword from "./components/pages/ForgotPassword";
-// import Homepage from "./components/pages/Homepage";
-// import Dashboard from "./components/pages/Dashboard";
+import { getUserById, setLoading, setNeedVerification } from "store/modules/auth/actions";
+import { defaultRoute, publicRoutes, privateRoutes } from "routes/routes-list";
+import { RootState } from "store";
+
+import firebase from "firebase/config";
+
+import Header from "components/Header";
 import PrivateRoute from "components/PrivateRoute";
 import PublicRoute from "components/PublicRoute";
-// import Loader from "./components/UI/Loader";
-import firebase from "firebase/config";
-import { defaultRoute, publicRoutes, privateRoutes } from "routes/routes-list";
-import { getUserById, setLoading, setNeedVerification } from "store/modules/auth/actions";
-import { RootState } from "store";
+import Loader from "components/Loader";
+
+const SignUp = React.lazy(() => import("modules/SignUp"));
+const SignIn = React.lazy(() => import("modules/SignIn"));
+const ForgotPassword = React.lazy(() => import("modules/ForgotPassword"));
+const Homepage = React.lazy(() => import("modules/Homepage"));
+const Dashboard = React.lazy(() => import("modules/Dashboard"));
+const PageNotFound = React.lazy(() => import("modules/PageNotFound"));
 
 const Content: React.FC = () => {
   const dispatch = useDispatch();
@@ -40,18 +44,20 @@ const Content: React.FC = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>loading</div>;
+    return <Loader />;
   }
 
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
       <Switch>
-        {/* <Route path={defaultRoute} component={Homepage} exact /> */}
-        {/* <PublicRoute path={publicRoutes.signUp} component={SignUp} exact /> */}
-        {/* <PublicRoute path={publicRoutes.forgotPassword} component={SignIn} exact /> */}
-        {/* <PublicRoute path={publicRoutes.forgotPassword} component={ForgotPassword} exact /> */}
-        {/* <PrivateRoute path={privateRoutes.dashboard} component={Dashboard} exact /> */}
+        <Route path={defaultRoute} component={Homepage} exact />
+        <PublicRoute path={publicRoutes.signUp} component={SignUp} exact />
+        <PublicRoute path={publicRoutes.signIn} component={SignIn} exact />
+        <PublicRoute path={publicRoutes.forgotPassword} component={ForgotPassword} exact />
+        <PublicRoute path={publicRoutes.pageNotFound} component={PageNotFound} exact />
+        <PrivateRoute path={privateRoutes.dashboard} component={Dashboard} exact />
+        <Redirect to={publicRoutes.pageNotFound} />
       </Switch>
     </BrowserRouter>
   );
