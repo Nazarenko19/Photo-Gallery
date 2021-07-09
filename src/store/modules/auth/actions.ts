@@ -54,7 +54,7 @@ export const getUserById = (id: string): ThunkAction<void, RootState, null, Auth
     try {
       const user = await firebase.firestore().collection("users").doc(id).get();
       if (user.exists) {
-        const userData = user.data() as User;
+        const userData: any = user.data();
         dispatch({
           type: SET_USER,
           payload: userData

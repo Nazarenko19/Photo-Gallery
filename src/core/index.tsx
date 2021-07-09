@@ -1,7 +1,17 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Provider } from "react-redux";
+import Content from "modules";
+import "firebase/config";
+import store from "store";
 
 const PhotoGalleryApp: React.FC = () => {
-  return <div>PhotoGalleryMain</div>;
+  return (
+    <Fragment>
+      <Provider store={store}>
+        <Content />
+      </Provider>
+    </Fragment>
+  );
 };
 
 export default PhotoGalleryApp;
