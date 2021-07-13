@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useState, useEffect } from "react";
+import React, { FC, FormEvent, MouseEvent, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Input from "components/Input";
@@ -9,11 +9,12 @@ import { signup, setError } from "store/modules/auth/actions";
 import { RootState } from "store";
 
 const SingUp: FC = () => {
+  const dispatch = useDispatch();
+
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
   const { error } = useSelector((state: RootState) => state.auth);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const SingUp: FC = () => {
     };
   }, [error, dispatch]);
 
-  const submitHandler = (e: FormEvent) => {
+  const submitHandler = (e: MouseEvent) => {
     e.preventDefault();
     if (error) {
       dispatch(setError(""));
@@ -37,7 +38,7 @@ const SingUp: FC = () => {
     <section className="section">
       <div className="container">
         <h2 className="has-text-centered is-size-2 mb-3">Sign Up</h2>
-        <form className="form" onSubmit={submitHandler}>
+        <form className="form">
           {error && <Message type="danger" msg={error} />}
           <Input
             name="firstName"
@@ -66,6 +67,7 @@ const SingUp: FC = () => {
             text={loading ? "Loading..." : "Sign Up"}
             className="is-primary is-fullwidth mt-5"
             disabled={loading}
+            onClick={submitHandler}
           />
         </form>
       </div>
