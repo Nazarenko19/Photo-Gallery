@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { publicRoutes } from "routes/routes-list";
 import { Link } from "react-router-dom";
 
-import { signin, setError } from "store/modules/auth/actions";
+import { signIn, setError } from "store/modules/auth/actions";
 import { RootState } from "store";
 
 import Input from "components/Input";
@@ -32,7 +32,7 @@ const SignIn: FC = () => {
       dispatch(setError(""));
     }
     setLoading(true);
-    dispatch(signin({ email, password }, () => setLoading(false)));
+    dispatch(signIn({ email, password }, () => setLoading(false)));
   };
 
   return (

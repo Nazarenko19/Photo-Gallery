@@ -16,7 +16,7 @@ import { RootState } from "../../";
 import firebase from "firebase/config";
 
 // Create user
-export const signup = (data: SignUpData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
+export const signUp = (data: SignUpData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
   return async dispatch => {
     try {
       const res = await firebase.auth().createUserWithEmailAndPassword(data.email, data.password);
@@ -77,7 +77,7 @@ export const setLoading = (value: boolean): ThunkAction<void, RootState, null, A
 };
 
 // Log in
-export const signin = (data: SignInData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
+export const signIn = (data: SignInData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
   return async dispatch => {
     try {
       await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
@@ -90,7 +90,7 @@ export const signin = (data: SignInData, onError: () => void): ThunkAction<void,
 };
 
 // Log out
-export const signout = (): ThunkAction<void, RootState, null, AuthAction> => {
+export const signOut = (): ThunkAction<void, RootState, null, AuthAction> => {
   return async dispatch => {
     try {
       dispatch(setLoading(true));

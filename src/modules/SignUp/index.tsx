@@ -5,7 +5,7 @@ import Input from "components/Input";
 import Message from "components/Message";
 import Button from "components/Button";
 
-import { signup, setError } from "store/modules/auth/actions";
+import { signUp, setError } from "store/modules/auth/actions";
 import { RootState } from "store";
 
 const SingUp: FC = () => {
@@ -31,14 +31,14 @@ const SingUp: FC = () => {
       dispatch(setError(""));
     }
     setLoading(true);
-    dispatch(signup({ email, password, firstName }, () => setLoading(false)));
+    dispatch(signUp({ email, password, firstName }, () => setLoading(false)));
   };
 
   return (
-    <section className="section">
-      <div className="container">
-        <h2 className="has-text-centered is-size-2 mb-3">Sign Up</h2>
-        <form className="form">
+    <section>
+      <div>
+        <h2>Sign Up</h2>
+        <form>
           {error && <Message type="danger" msg={error} />}
           <Input
             name="firstName"
@@ -63,12 +63,7 @@ const SingUp: FC = () => {
             placeholder="Password"
             label="Password"
           />
-          <Button
-            text={loading ? "Loading..." : "Sign Up"}
-            className="is-primary is-fullwidth mt-5"
-            disabled={loading}
-            onClick={submitHandler}
-          />
+          <Button text={loading ? "Loading..." : "Sign Up"} disabled={loading} onClick={submitHandler} />
         </form>
       </div>
     </section>
