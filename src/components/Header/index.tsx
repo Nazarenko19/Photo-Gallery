@@ -9,7 +9,7 @@ const Header: FC = () => (
   <div>
     <AppBar position="static">
       <Toolbar>
-        <Grid container justify="space-between" alignItems="center">
+        <Grid container alignItems="center">
           <Link to={defaultRoute}>
             <PhotoLibraryIcon />
           </Link>

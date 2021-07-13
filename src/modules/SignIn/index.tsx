@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useState, useEffect } from "react";
+import React, { FC, MouseEvent, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { publicRoutes } from "routes/routes-list";
@@ -26,7 +26,7 @@ const SignIn: FC = () => {
     };
   }, [error, dispatch]);
 
-  const submitHandler = (e: FormEvent) => {
+  const submitHandler = (e: MouseEvent) => {
     e.preventDefault();
     if (error) {
       dispatch(setError(""));

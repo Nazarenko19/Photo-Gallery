@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, MouseEvent, useState, useEffect } from "react";
+import React, { FC, MouseEvent, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Input from "components/Input";
