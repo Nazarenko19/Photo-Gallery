@@ -1,8 +1,6 @@
-import React, { FC } from "react";
-import ReactDOM from "react-dom";
-
-// import Button from "components/Button";
-
+import React, { FC, Fragment } from "react";
+import { Alert as BasicAlert } from "@material-ui/lab";
+import { Button } from "@material-ui/core";
 interface AlertProps {
   onClose: () => void;
   onSubmit: () => void;
@@ -11,7 +9,22 @@ interface AlertProps {
 }
 
 const Alert: FC<AlertProps> = ({ onClose, onSubmit, title, deleting }) => {
-  return <div>alert</div>;
+  return (
+    <BasicAlert
+      action={
+        <Fragment>
+          <Button color="inherit" size="small" onClick={onClose}>
+            CANCEL
+          </Button>
+          <Button color="inherit" size="small" onClick={onSubmit}>
+            {deleting ? "Deleting..." : "Delete"}
+          </Button>
+        </Fragment>
+      }
+    >
+      {title}
+    </BasicAlert>
+  );
 };
 
 export default Alert;

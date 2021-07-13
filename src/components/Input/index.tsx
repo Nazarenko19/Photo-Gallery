@@ -1,5 +1,5 @@
 import React, { FC, InputHTMLAttributes } from "react";
-import { withStyles } from "@material-ui/core";
+import { withStyles, TextField } from "@material-ui/core";
 import inputStyles from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,7 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: FC<InputProps> = ({ type = "text", placeholder, value, name, onChange, label, multiple }) => {
-  return <div>Input</div>;
+  return <TextField label={label} value={value} name={name} onChange={onChange} placeholder={placeholder} />;
 };
 
 export default withStyles(inputStyles)(Input);

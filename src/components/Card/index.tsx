@@ -11,7 +11,21 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ onDelete, onImageClick, imageUrl, publicCard, uploader }) => {
-  return <div>card</div>;
+  return (
+    <div>
+      <div className="card-content">
+        <div className="content" style={{ backgroundImage: `url(${imageUrl})` }} onClick={onImageClick}></div>
+      </div>
+      <footer className="card-footer">
+        {publicCard && <p className="px-5 py-2">Uploaded by: {uploader}</p>}
+        {!publicCard && (
+          <a href="/#" className="card-footer-item" onClick={onDelete}>
+            Delete
+          </a>
+        )}
+      </footer>
+    </div>
+  );
 };
 
 export default withStyles(cardStyles)(Card);

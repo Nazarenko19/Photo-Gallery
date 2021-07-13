@@ -19,13 +19,5 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "lib",
-    "tests",
-    "scripts",
-    "webpack",
-    "src/setupTests.ts"
-  ]
+  "exclude": ["node_modules", "build", "lib", "tests", "scripts", "webpack", "src/setupTests.ts", ".env"]
 }

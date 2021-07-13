@@ -1,14 +1,17 @@
 import React, { FC, ButtonHTMLAttributes } from "react";
-import { withStyles } from "@material-ui/core";
-import buttonStyles from "./styles";
+import { Button as BasicButton } from "@material-ui/core";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ onClick, text, type, disabled, className }) => {
-  return <div>button</div>;
+const Button: FC<ButtonProps> = ({ onClick, text, disabled, className }) => {
+  return (
+    <BasicButton className={className} disabled={disabled} onClick={onClick}>
+      {text}
+    </BasicButton>
+  );
 };
 
-export default withStyles(buttonStyles)(Button);
+export default Button;
