@@ -1,8 +1,8 @@
 import React, { FC, MouseEvent, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "store";
-import { GalleryImage } from "store/modules/galley/types";
-import { getImages, deleteImage } from "store/modules/galley/actions";
+import { GalleryImage } from "store/modules/gallery/types";
+import { getImages, deleteImage } from "store/modules/gallery/actions";
 import { setSuccess } from "store/modules/auth/actions";
 
 import Button from "components/Button";

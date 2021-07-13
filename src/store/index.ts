@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import authReducer from "store/modules/auth/reducer";
-import galleryReducer from "store/modules/galley/reducer";
+import galleryReducer from "store/modules/gallery/reducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,

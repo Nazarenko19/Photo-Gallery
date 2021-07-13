@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Card from "components/Card";
 import ImageModal from "components/Modals/ImageModal";
-import { getImages } from "store/modules/galley/actions";
+import { getImages } from "store/modules/gallery/actions";
 import { RootState } from "store";
-import { GalleryImage } from "store/modules/galley/types";
+import { GalleryImage } from "store/modules/gallery/types";
 
 const Homepage: FC = () => {
   const dispatch = useDispatch();

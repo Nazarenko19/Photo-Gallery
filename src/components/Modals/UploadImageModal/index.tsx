@@ -1,6 +1,6 @@
 import React, { FC, FormEvent, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addImage } from "store/modules/galley/actions";
+import { addImage } from "store/modules/gallery/actions";
 import { RootState } from "store";
 
 import Button from "components/Button";

@@ -2,7 +2,7 @@ import { ThunkAction } from "redux-thunk";
 
 import { User } from "../../globalTypes";
 import { GET_IMAGES, ADD_IMAGE, DELETE_IMAGE, GalleryAction, GalleryImage } from "./types";
-import { RootState } from "../../";
+import { RootState } from "../..";
 import firebase from "firebase/config";
 
 // Add/upload image
